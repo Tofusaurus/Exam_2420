@@ -24,17 +24,15 @@ To find the options to put I used `/` to search through the man pages. Keywords 
 ```
 #!/bin/bash
 
-_l="/etc/login.defs"
-_p="/etc/passwd"
+users_data=$(grep -E ':[0-9]{4}:' /etc/passwd | awk -F: '{ if ($3 >= 1000 && $3 <= 5000) print $1, $3, $7 }')
 
-## get mini UID limit ##
-l=$(grep "^UID_MIN" $_l)
+logged_in_users=$(who | awk '{ print $1 }')
 
-## get max UID limit ##
-l1=$(grep "^UID_MAX" $_l)
-
-## use awk to print if UID >= $MIN and UID <= $MAX and shell is not /sbin/nologin   ##
-awk -F':' -v "min=${l##UID_MIN}" -v "max=${l1##UID_MAX}" '{ if ( $3 >= min && $3 <= max  && $7 != "/sbin/nologin" ) "$_p" /etc/motd
+echo "Regular users:" > /etc/motd
+echo "$users_data" >> /etc/motd
+echo "" >> /etc/motd
+echo "Currently logged in users:" >> /etc/motd
+echo "$logged_in_users" >> /etc/motd
 ```
 
 ## Part 5:
