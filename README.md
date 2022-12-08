@@ -8,7 +8,7 @@ sudo apt upgrade
 
 for the single character changes. I used `R` command to replace the existing character to the new one
 for changing "numbs" to ":digits:" I used `I`
-![](Images/vim1.PNG)
+<br>![](Images/vim1.PNG)
 
 ## Part 3:
 The code is:
