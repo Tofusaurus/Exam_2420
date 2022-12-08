@@ -8,7 +8,7 @@ sudo apt upgrade
 
 for the single character changes. I used `R` command to replace the existing character to the new one
 for changing "numbs" to ":digits:" I used `I`
-![]<vim1.PNG>
+![](vim1.PNG)
 
 ## Part 3:
 The code is:
@@ -16,9 +16,9 @@ The code is:
 journalctl -b -p warning -o json
 ```
 To find the options to put I used `/` to search through the man pages. Keywords I searched are 'logs', 'priority', and 'output'
-![]<Part3-1.PNG>
-![]<Part3-2.PNG>
-![]<Part3-3.PNG>
+![](Part3-1.PNG)
+![](Part3-2.PNG)
+![](Part3-3.PNG)
 
 ## Part 4:
 ```
